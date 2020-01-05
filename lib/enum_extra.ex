@@ -32,4 +32,8 @@ defmodule EnumExtra do
   def average(enumerable) do
     Decimal.div(Decimal.new(Enum.sum(enumerable)), Decimal.new(Enum.count(enumerable)))
   end
+
+  def average_decimal(enumerable) do
+    Decimal.div(Enum.reduce(enumerable, &Decimal.add/2), Decimal.new(Enum.count(enumerable)))
+  end
 end
